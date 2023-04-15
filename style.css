@@ -77,3 +77,12 @@ input {
     padding: 0.5em 1em;
 
 }
+
+footer {
+    margin-top: 3em;
+    font-size: 0.5em;
+}
+
+footer * {
+    font-size: inherit;
+}
