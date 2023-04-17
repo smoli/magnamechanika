@@ -92,15 +92,6 @@
         return splits;
     }
 
-    function removeStartingWith(words, start) {
-        const r = new RegExp("^" + start);
-        return words.filter(w => {
-            return !w.match(r)
-        })
-    }
-
-
-
     /***************** UI ******************/
 
     const FIRST_LIST_ID = "firstPart";
@@ -108,7 +99,6 @@
     const RESULT_ID = "result";
     const WORD_END = "#";
 
-    const selectedItems = [null, null];
     const wordParts = [null, null];
     let secondList = null;
 
@@ -154,16 +144,11 @@
         sel.innerHTML = null;
 
         words.forEach(w => {
-            const opt = document.createElement("li");
+            const opt = document.createElement("option");
             opt.innerText = w
             sel.appendChild(opt);
 
             opt.onclick = () => {
-                if (selectedItems[1]) {
-                    selectedItems[1].classList.remove("selected");
-                }
-                selectedItems[1] = opt;
-                opt.classList.add("selected");
                 wordParts[1] = w;
                 updateResult();
             }
@@ -180,16 +165,11 @@
         }
 
         words.forEach(w => {
-            const opt = document.createElement("li");
+            const opt = document.createElement("option");
             opt.innerText = w
             sel.appendChild(opt);
 
             opt.onclick = () => {
-                if (selectedItems[0]) {
-                    selectedItems[0].classList.remove("selected");
-                }
-                selectedItems[0] = opt;
-                opt.classList.add("selected");
                 wordParts[0] = w;
                 fillSecondList(otherWords);
                 updateResult();
@@ -200,8 +180,6 @@
     }
 
     function update() {
-        selectedItems[0] = null;
-        selectedItems[1] = null;
         wordParts[0] = null;
         wordParts[1] = null;
 

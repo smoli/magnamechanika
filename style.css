@@ -1,6 +1,6 @@
 * {
     font-family: SansSerif, sans-serif;
-    font-size: 18pt;
+    font-size: 16pt;
 }
 
 body {
@@ -25,11 +25,12 @@ body div {
 }
 
 .wordlist {
-    margin-top: 2em;
-    max-height: 10em;
+    margin-top: 1em;
     overflow: scroll;
     border: 1px solid lightgray;
     padding: 0.5em 1em;
+    display: inline-block;
+    width: 25vw;
 }
 
 .wordlist ul {
@@ -59,7 +60,7 @@ h1 span {
 
 #result {
     font-size: 1.5em;
-    margin-top: 1em;
+    margin-top: 0.5em;
     border-bottom: 1px solid lightgray;
     padding: 0.5em 1em;
     white-space: nowrap;
