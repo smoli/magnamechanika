@@ -147,12 +147,6 @@
             const opt = document.createElement("option");
             opt.innerText = w
             sel.appendChild(opt);
-
-            opt.onclick = () => {
-                wordParts[1] = w;
-                updateResult();
-            }
-
         })
 
     }
@@ -174,7 +168,6 @@
                 fillSecondList(otherWords);
                 updateResult();
             }
-
         })
 
     }
@@ -202,7 +195,6 @@
         })
     }
 
-
     function nameChanged(event) {
         providedName = event.target.value.toLowerCase();
         update();
@@ -220,6 +212,17 @@
         backwardTrie = makeReverseTrie(words);
 
         document.getElementById("name").oninput = nameChanged;
+
+        document.getElementById(FIRST_LIST_ID).onchange = event => {
+            const opt = event.target.options[event.target.selectedIndex];
+            //This is a bit hacky but works for mobile (iOS)
+            opt.click();
+        }
+
+        document.getElementById(SECOND_LIST_ID).onchange = event => {
+            wordParts[1] = event.target.value;
+            updateResult();
+        }
     }
 
     document.body.onload = () => {
