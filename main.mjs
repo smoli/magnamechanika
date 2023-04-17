@@ -15,7 +15,6 @@
             if (!node[c]) {
                 node[c] = {}
             }
-
             node = node[c];
         }
         node[WORD_END] = true; // Mark end of word
@@ -31,7 +30,6 @@
             if (!node[c]) {
                 node[c] = {}
             }
-
             node = node[c];
         }
         node[WORD_END] = true; // Mark end of word
@@ -55,9 +53,7 @@
 
         let node = trie;
         for (const c of sub.toLowerCase()) {
-
             node = node[c];
-
             if (!node) {
                 return [];
             }
@@ -79,7 +75,6 @@
         return words;
     }
 
-
     function getWordSplits(word, minLength = 2) {
         const splits = [];
         for (let i = minLength; i <= word.length - minLength; i++) {
@@ -88,7 +83,6 @@
                 word.substring(i)
             ])
         }
-
         return splits;
     }
 
