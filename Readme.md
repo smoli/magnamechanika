@@ -12,3 +12,6 @@ The one of the trie structures is filled with all words reversed so we can easil
 It then splits the given name at different positions leaving at least 2 characters in the first and the second part and
 searches the tries for words starting/ending with the two resulting parts fo the name.
 
+## Creating the wordlist
+
+Download https://github.com/gambolputty/german-nouns/blob/main/german_nouns/nouns.csv and run `converter.js`

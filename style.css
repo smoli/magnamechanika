@@ -26,7 +26,7 @@ body div {
 
 .wordlist {
     margin-top: 2em;
-    max-height: 20em;
+    max-height: 10em;
     overflow: scroll;
     border: 1px solid lightgray;
     padding: 0.5em 1em;

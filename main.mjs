@@ -5,7 +5,7 @@
     let providedName = null;
 
     function loadWords() {
-        return fetch("deutsch.txt")
+        return fetch("newWords.txt")
             .then(result => result.text())
     }
 
