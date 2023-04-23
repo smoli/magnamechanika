@@ -1,12 +1,15 @@
 (async () => {
 
+    const WORD_END = "#";
     let forwardTrie = null;
     let backwardTrie = null;
+
     let providedName = null;
 
     function loadWords() {
         return fetch("newWords.txt")
             .then(result => result.text())
+
     }
 
     function addToTrie(trie, word) {
@@ -18,13 +21,14 @@
             node = node[c];
         }
         node[WORD_END] = true; // Mark end of word
-    }
 
+
+    }
 
     function addReverseToTrie(trie, word) {
         let node = trie;
-        let p = word.length;
 
+        let p = word.length;
         while (p--) {
             const c = word[p];
             if (!node[c]) {
@@ -33,46 +37,52 @@
             node = node[c];
         }
         node[WORD_END] = true; // Mark end of word
+
     }
 
     function makeTrie(words) {
         const trie = {};
-        words.forEach(w => addToTrie(trie, w.toLowerCase()));
 
+        words.forEach(w => addToTrie(trie, w.toLowerCase()));
         return trie;
+
     }
 
     function makeReverseTrie(words) {
         const trie = {};
         words.forEach(w => addReverseToTrie(trie, w.toLowerCase()));
         return trie;
+
     }
 
     function findWordsBeginningWith(trie, sub) {
-        const words = [];
 
+        const words = [];
         let node = trie;
         for (const c of sub.toLowerCase()) {
             node = node[c];
             if (!node) {
                 return [];
             }
+
         }
 
         function walk(node, word) {
             if (node.hasOwnProperty(WORD_END)) {
                 words.push(sub + word);
-            }
 
+            }
             for (const c in node) {
                 if (c !== WORD_END) {
                     walk(node[c], word + c);
                 }
             }
+
         }
 
         walk(node, "");
         return words;
+
     }
 
     function getWordSplits(word, minLength = 2) {
@@ -84,6 +94,7 @@
             ])
         }
         return splits;
+
     }
 
     /***************** UI ******************/
@@ -91,7 +102,6 @@
     const FIRST_LIST_ID = "firstPart";
     const SECOND_LIST_ID = "secondPart";
     const RESULT_ID = "result";
-    const WORD_END = "#";
 
     const wordParts = [null, null];
     let secondList = null;
@@ -113,7 +123,8 @@
         }
         if (!providedName) {
             re.innerText = "&hellip;";
-        } if (wordParts[0] === null && wordParts[1] === null) {
+        }
+        if (wordParts[0] === null && wordParts[1] === null) {
             re.innerHTML = "&hellip;";
         } else {
             re.innerHTML = wordParts.map(m => m || "&hellip;").join("").replace(providedName, `<strong>${providedName}</strong>`);
