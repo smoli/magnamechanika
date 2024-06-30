@@ -19,3 +19,5 @@ Download https://github.com/gambolputty/german-nouns/blob/main/german_nouns/noun
 ## Demo
 
 [Online version here](https://magnamechanika.farbspender.de/)
+
+Enter a name/word, select something from the left list and then something fitting/funny from the right.
