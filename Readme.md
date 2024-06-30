@@ -15,3 +15,7 @@ searches the tries for words starting/ending with the two resulting parts fo the
 ## Creating the wordlist
 
 Download https://github.com/gambolputty/german-nouns/blob/main/german_nouns/nouns.csv and run `converter.js`
+
+## Demo
+
+[Online version here](https://magnamechanika.farbspender.de/)
